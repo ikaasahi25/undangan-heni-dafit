@@ -1,0 +1,1630 @@
+/* ================================================= */
+/* RESET */
+/* ================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #fdf8f4;
+    color: #705c4e;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-inner {
+    width: 100%;
+    max-width: 430px;
+    margin: auto;
+    padding: 70px 28px;
+    text-align: center;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+}
+
+p {
+    line-height: 1.8;
+}
+
+
+/* ================================================= */
+/* COVER */
+/* ================================================= */
+
+.cover {
+    min-height: 760px;
+    background: #fdf9f5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    position: relative;
+}
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px 25px;
+}
+
+.small-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #8e796b;
+    margin-bottom: 30px;
+}
+
+.cover h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 1;
+    color: #735d50;
+    margin-bottom: 25px;
+}
+
+.cover-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    color: #9b8779;
+}
+
+
+/* ================================================= */
+/* ORNAMEN COVER */
+/* ================================================= */
+
+.flower {
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    opacity: 0.35;
+
+    pointer-events: none;
+}
+
+.flower::before,
+.flower::after {
+    content: "";
+
+    position: absolute;
+
+    width: 45px;
+    height: 85px;
+
+    border: 1px solid #9b9b8b;
+
+    border-radius: 100% 0 100% 0;
+}
+
+.flower::before {
+    top: 20px;
+    left: 25px;
+
+    transform: rotate(35deg);
+}
+
+.flower::after {
+    top: 35px;
+    left: 55px;
+
+    transform: rotate(-25deg);
+}
+
+.flower-top-left {
+    top: -25px;
+    left: -30px;
+
+    transform: rotate(-20deg);
+}
+
+.flower-top-right {
+    top: -25px;
+    right: -30px;
+
+    transform: scaleX(-1) rotate(-20deg);
+}
+
+.flower-bottom-left {
+    bottom: -55px;
+    left: -35px;
+
+    transform: rotate(150deg);
+}
+
+.flower-bottom-right {
+    bottom: -55px;
+    right: -35px;
+
+    transform: scaleX(-1) rotate(150deg);
+}
+
+
+/* ================================================= */
+/* OPENING */
+/* ================================================= */
+
+.opening {
+    background: #fffaf7;
+}
+
+.opening .section-inner {
+    padding-top: 75px;
+    padding-bottom: 75px;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    animation: openingFade 1.5s ease forwards;
+}
+
+.arabic {
+    font-family: 'Amiri', serif;
+    font-size: 27px;
+    line-height: 2;
+
+    color: #725c4f;
+
+    direction: rtl;
+
+    margin-bottom: 5px;
+}
+
+.arabic-translation {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+
+    color: #967e6f;
+
+    margin-bottom: 35px;
+}
+
+.opening-text {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 9px;
+    line-height: 2;
+
+    color: #806c5f;
+
+    max-width: 330px;
+
+    margin: 0 auto 18px;
+}
+
+@keyframes openingFade {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================================= */
+/* COUPLE / MEMPELAI */
+/* ================================================= */
+
+.couple {
+    background: #fdf3ec;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.couple .section-inner {
+    padding-top: 90px;
+    padding-bottom: 90px;
+
+    position: relative;
+    z-index: 5;
+}
+
+.couple h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 34px;
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    color: #735b4c;
+
+    margin: 0;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+.couple-description {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 8px;
+    line-height: 1.8;
+
+    color: #91796a;
+
+    margin-top: 15px;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    transition-delay: 0.3s;
+}
+
+.and {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 30px;
+
+    color: #947765;
+
+    margin: 40px 0;
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    transition-delay: 0.8s;
+}
+
+.couple.bloom-active h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.couple.bloom-active .couple-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.couple.bloom-active .and {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* ================================================= */
+/* BUNGA BERMEKARAN */
+/* ================================================= */
+
+.bloom-flower {
+    position: absolute;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    font-size: 30px;
+
+    opacity: 0;
+
+    transform:
+        scale(0)
+        translateY(40px)
+        rotate(-15deg);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flower-left {
+    left: 5%;
+}
+
+.flower-right {
+    right: 5%;
+}
+
+.flower-1 {
+    top: 10%;
+    font-size: 30px;
+}
+
+.flower-2 {
+    top: 30%;
+    left: 10%;
+    font-size: 22px;
+}
+
+.flower-3 {
+    bottom: 15%;
+    left: 7%;
+    font-size: 25px;
+}
+
+.flower-4 {
+    top: 12%;
+    font-size: 30px;
+}
+
+.flower-5 {
+    top: 38%;
+    right: 10%;
+    font-size: 22px;
+}
+
+.flower-6 {
+    bottom: 13%;
+    right: 7%;
+    font-size: 25px;
+}
+
+.couple.bloom-active .bloom-flower {
+    opacity: 1;
+
+    transform:
+        scale(1)
+        translateY(0)
+        rotate(0);
+}
+
+.couple.bloom-active .flower-1 {
+    transition-delay: 0.1s;
+}
+
+.couple.bloom-active .flower-2 {
+    transition-delay: 0.35s;
+}
+
+.couple.bloom-active .flower-3 {
+    transition-delay: 0.55s;
+}
+
+.couple.bloom-active .flower-4 {
+    transition-delay: 0.2s;
+}
+
+.couple.bloom-active .flower-5 {
+    transition-delay: 0.4s;
+}
+
+.couple.bloom-active .flower-6 {
+    transition-delay: 0.65s;
+}
+
+
+/* ================================================= */
+/* ORNAMEN DAUN */
+/* ================================================= */
+
+.couple::before,
+.couple::after {
+    content: "❧";
+
+    position: absolute;
+
+    z-index: 1;
+
+    color: #b9a294;
+
+    opacity: 0.45;
+
+    font-size: 65px;
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+.couple::before {
+    left: -12px;
+    bottom: 30px;
+
+    transform:
+        rotate(-25deg)
+        translateX(-30px);
+}
+
+.couple::after {
+    right: -12px;
+    top: 35px;
+
+    transform:
+        rotate(155deg)
+        translateX(30px);
+}
+
+.couple.bloom-active::before,
+.couple.bloom-active::after {
+    opacity: 0.65;
+
+    transform:
+        rotate(0)
+        translateX(0);
+}
+
+
+/* ================================================= */
+/* EVENTS / RANGKAIAN ACARA */
+/* ================================================= */
+
+.events {
+    background: #f9e8dc;
+
+    text-align: center;
+}
+
+.events .section-inner {
+    max-width: 480px;
+
+    /*
+    SPASI ATAS DAN BAWAH
+    DIBUAT LEBIH LEGA
+    */
+
+    padding-top: 85px;
+    padding-bottom: 100px;
+}
+
+
+/* ================================================= */
+/* LABEL AGENDA */
+/* ================================================= */
+
+.events .section-label {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 7px;
+
+    font-weight: 400;
+
+    letter-spacing: 3px;
+
+    color: #a48776;
+
+    /*
+    JARAK AGENDA
+    KE JUDUL
+    */
+
+    margin-bottom: 20px;
+}
+
+
+/* ================================================= */
+/* JUDUL RANGKAIAN ACARA */
+/* ================================================= */
+
+.events .section-title {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 36px;
+
+    font-weight: 500;
+
+    color: #735c4e;
+
+    /*
+    JARAK JUDUL
+    KE COUNTDOWN
+    */
+
+    margin: 0 0 50px;
+}
+
+
+/* ================================================= */
+/* COUNTDOWN */
+/* ================================================= */
+
+.countdown {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    max-width: 390px;
+
+    /*
+    JARAK COUNTDOWN
+    KE KARTU ACARA
+    */
+
+    margin: 0 auto 42px;
+}
+
+.countdown-item {
+    min-width: 70px;
+
+    padding: 17px 8px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.72
+    );
+
+    border-radius: 8px;
+
+    box-sizing: border-box;
+}
+
+.countdown-number {
+    display: block;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 27px;
+
+    color: #765e50;
+
+    line-height: 1.1;
+}
+
+.countdown-label {
+    display: block;
+
+    margin-top: 7px;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+
+    color: #a18473;
+}
+
+.countdown-finished {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 18px;
+
+    color: #765e50;
+}
+
+
+/* ================================================= */
+/* EVENT CARD */
+/* ================================================= */
+
+.event-card {
+    width: 100%;
+
+    max-width: 425px;
+
+    /*
+    JARAK ANTAR CARD
+    */
+
+    margin: 0 auto 22px;
+
+    /*
+    ISI CARD DIBUAT
+    LEBIH RENGGANG
+    */
+
+    padding: 38px 25px 42px;
+
+    min-height: 245px;
+
+    background: #fffdfb;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(
+            120,
+            80,
+            60,
+            0.06
+        );
+
+    box-sizing: border-box;
+}
+
+.event-card:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ================================================= */
+/* ICON ACARA */
+/* ================================================= */
+
+.event-icon {
+    width: 40px;
+    height: 40px;
+
+    margin: 0 auto 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f8eee8;
+
+    color: #967967;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 20px;
+}
+
+
+/* ================================================= */
+/* JUDUL ACARA */
+/* ================================================= */
+
+.event-card h3 {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 29px;
+
+    font-weight: 500;
+
+    color: #765e50;
+
+    margin: 0 0 20px;
+}
+
+
+/* ================================================= */
+/* TANGGAL */
+/* ================================================= */
+
+.event-date {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 7px;
+
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+
+    color: #a18473;
+
+    margin: 0 0 17px;
+}
+
+
+/* ================================================= */
+/* WAKTU */
+/* ================================================= */
+
+.event-time {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 8px;
+
+    color: #806b5d;
+
+    margin: 0 0 18px;
+}
+
+
+/* ================================================= */
+/* LOKASI */
+/* ================================================= */
+
+.event-location {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 8px;
+
+    line-height: 1.6;
+
+    color: #90796a;
+
+    margin: 0;
+}
+
+
+/* ================================================= */
+/* VENUE / TEMPAT ACARA */
+/* ================================================= */
+
+.venue {
+    background: #fffaf7;
+
+    text-align: center;
+}
+
+.venue .section-inner {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.venue .section-label {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: #a48776;
+
+    margin-bottom: 10px;
+}
+
+.venue h2 {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    color: #735c4e;
+
+    margin: 0 0 10px;
+}
+
+.venue-description {
+    max-width: 300px;
+
+    margin: 0 auto 25px;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 8px;
+
+    line-height: 1.8;
+
+    color: #8d7668;
+}
+
+
+/* FOTO LOKASI */
+
+.venue-photo {
+    width: 100%;
+
+    max-width: 340px;
+
+    height: 220px;
+
+    margin: 0 auto 20px;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background: #eee3dc;
+}
+
+.venue-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ALAMAT */
+
+.venue-address {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 8px;
+
+    line-height: 1.8;
+
+    color: #806b5d;
+
+    margin-bottom: 20px;
+}
+
+
+/* BUTTON LOKASI */
+
+.location-button {
+    display: inline-block;
+
+    padding: 11px 24px;
+
+    border-radius: 30px;
+
+    background: #806858;
+
+    color: #ffffff;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.location-button:hover {
+    background: #665143;
+}
+
+
+/* ================================================= */
+/* QUOTE / AYAT */
+/* ================================================= */
+
+.quote {
+    background: #fffaf7;
+
+    text-align: center;
+}
+
+.quote .section-inner {
+    max-width: 480px;
+
+    margin: 0 auto;
+
+    padding: 80px 30px;
+}
+
+.small-ornament {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 25px;
+
+    color: #b19787;
+
+    margin-bottom: 20px;
+}
+
+.quote-text {
+    max-width: 330px;
+
+    margin: 0 auto 18px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #765e50;
+}
+
+.quote-source {
+    margin: 0;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+    color: #a18473;
+}
+
+
+/* ================================================= */
+/* DENAH / QR CODE */
+/* ================================================= */
+
+.map-section {
+    background: #f9e8dc;
+
+    text-align: center;
+}
+
+.map-section .section-inner {
+    max-width: 480px;
+
+    margin: 0 auto;
+
+    padding: 75px 25px;
+}
+
+.map-section .section-label {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: #a48776;
+
+    margin-bottom: 10px;
+}
+
+.map-section h2 {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    color: #735c4e;
+
+    margin: 0 0 12px;
+}
+
+.map-description {
+    max-width: 300px;
+
+    margin: 0 auto 25px;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 8px;
+
+    line-height: 1.8;
+
+    color: #806b5d;
+}
+
+
+/* QR CODE */
+
+.qr-container {
+    width: 230px;
+    height: 230px;
+
+    margin: 0 auto 15px;
+
+    padding: 12px;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(
+            120,
+            80,
+            60,
+            0.08
+        );
+}
+
+.qr-container img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.qr-caption {
+    margin: 0;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+    color: #a18473;
+}
+
+
+/* ================================================= */
+/* FAMILY / TURUT MENGUNDANG */
+/* ================================================= */
+
+.family {
+    background: #fffaf7;
+
+    text-align: center;
+}
+
+.family .section-inner {
+    max-width: 480px;
+
+    margin: 0 auto;
+
+    padding: 75px 25px;
+}
+
+.family .section-label {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: #a48776;
+
+    margin-bottom: 10px;
+}
+
+.family h2 {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    color: #735c4e;
+
+    margin: 0 0 30px;
+}
+
+
+/* FAMILY CARD */
+
+.family-card {
+    width: 100%;
+
+    max-width: 340px;
+
+    margin: 0 auto 15px;
+
+    padding: 20px 18px;
+
+    background: #fff;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(
+            120,
+            80,
+            60,
+            0.05
+        );
+}
+
+.family-card h3 {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    color: #765e50;
+
+    margin: 0 0 5px;
+}
+
+.family-card p {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 8px;
+
+    color: #8d7668;
+
+    margin: 0 0 8px;
+}
+
+.family-card span {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 6px;
+
+    letter-spacing: 1.5px;
+
+    color: #b09686;
+}
+
+
+/* ================================================= */
+/* CLOSING / PENUTUP */
+/* ================================================= */
+
+.closing {
+    background: #f9e8dc;
+
+    text-align: center;
+}
+
+.closing .section-inner {
+    max-width: 480px;
+
+    margin: 0 auto;
+
+    padding: 80px 30px 70px;
+}
+
+.closing .small-ornament {
+    margin-bottom: 25px;
+}
+
+.closing-text {
+    max-width: 320px;
+
+    margin: 0 auto 18px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #765e50;
+}
+
+.closing-greeting {
+    margin: 35px 0 8px;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color: #a18473;
+}
+
+.closing h2 {
+    margin: 0;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 32px;
+
+    font-weight: 500;
+
+    color: #735c4e;
+}
+
+
+/* ================================================= */
+/* FOOTER */
+/* ================================================= */
+
+footer {
+    background: #342b25;
+
+    text-align: center;
+
+    padding: 35px 20px 40px;
+
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 0 0 8px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 20px;
+
+    color: #fffaf7;
+}
+
+footer span {
+    display: block;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color: #d8c9bf;
+}
+
+
+/* ================================================= */
+/* MUSIC BUTTON */
+/* ================================================= */
+
+.music-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 100;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #806858;
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(
+            70,
+            45,
+            35,
+            0.2
+        );
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.08);
+}
+
+.music-button.playing {
+    animation:
+        musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0
+            rgba(
+                128,
+                104,
+                88,
+                0.4
+            );
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 10px
+            rgba(
+                128,
+                104,
+                88,
+                0
+            );
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0
+            rgba(
+                128,
+                104,
+                88,
+                0
+            );
+    }
+}
+
+
+/* ================================================= */
+/* DESKTOP */
+/* ================================================= */
+
+@media (min-width: 700px) {
+
+    body {
+        background: #e9dfd7;
+    }
+
+    section,
+    footer {
+        max-width: 480px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cover {
+        min-height: 850px;
+    }
+}
+
+
+/* ================================================= */
+/* MOBILE KECIL */
+/* ================================================= */
+
+@media (max-width: 380px) {
+
+    .events .section-inner {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .countdown {
+        gap: 6px;
+    }
+
+    .countdown-item {
+        min-width: 62px;
+
+        padding: 15px 5px;
+    }
+
+    .countdown-number {
+        font-size: 24px;
+    }
+
+    .event-card {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* =========================================
+   COVER - ANIMASI MUNCUL PERLAHAN
+   ========================================= */
+
+.cover-content .small-title,
+.cover-content h1,
+.cover-content .cover-date {
+    opacity: 0;
+    transform: translateY(18px);
+}
+
+/* THE WEDDING OF */
+.cover-content .small-title {
+    animation: coverReveal 1.2s ease-out 0.3s forwards;
+}
+
+/* HENI & DAFIT */
+.cover-content h1 {
+    animation: coverReveal 1.5s ease-out 0.8s forwards;
+}
+
+/* TANGGAL */
+.cover-content .cover-date {
+    animation: coverReveal 1.2s ease-out 1.4s forwards;
+}
+
+@keyframes coverReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   SCROLL REVEAL
+   MUNCUL SAAT DI-SCROLL
+   ========================================= */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.scroll-reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   BUTTERFLY OPENING ANIMATION
+   ========================================= */
+
+.butterfly {
+    position: fixed;
+    z-index: 9999;
+
+    font-size: 22px;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    filter: drop-shadow(
+        0 2px 4px rgba(120, 90, 70, 0.12)
+    );
+
+    animation: butterflyFly 5s ease-in-out forwards;
+}
+
+@keyframes butterflyFly {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(0, 30px)
+            rotate(-8deg)
+            scale(0.6);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    35% {
+        transform:
+            translate(35px, -90px)
+            rotate(8deg)
+            scale(1);
+    }
+
+    55% {
+        transform:
+            translate(-20px, -190px)
+            rotate(-5deg)
+            scale(1.05);
+    }
+
+    75% {
+        transform:
+            translate(45px, -300px)
+            rotate(7deg)
+            scale(0.95);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-10px, -430px)
+            rotate(-5deg)
+            scale(0.7);
+    }
+}
+
+
+/* =========================================
+   KUPU-KUPU SAAT UNDANGAN DIBUKA
+   ========================================= */
+
+.butterfly {
+    position: fixed;
+    left: 50%;
+    bottom: -40px;
+
+    z-index: 99999;
+
+    font-size: 25px;
+    line-height: 1;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation: butterflyFly 5s ease-in-out forwards;
+}
+
+@keyframes butterflyFly {
+
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(-10deg) scale(0.6);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    25% {
+        transform: translate(70px, -150px) rotate(12deg) scale(1);
+    }
+
+    45% {
+        transform: translate(-60px, -300px) rotate(-12deg) scale(1.05);
+    }
+
+    65% {
+        transform: translate(80px, -450px) rotate(10deg) scale(0.95);
+    }
+
+    85% {
+        opacity: 0.7;
+        transform: translate(-40px, -600px) rotate(-8deg) scale(0.9);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(30px, -750px) rotate(5deg) scale(0.7);
+    }
+}
