@@ -18,6 +18,7 @@ body {
     color: #705c4e;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
+    overflow-x: hidden;
 }
 
 section {
@@ -64,7 +65,7 @@ p {
 
 .cover-content {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     padding: 40px 25px;
 }
 
@@ -101,69 +102,92 @@ p {
 
 .flower {
     position: absolute;
-
     width: 130px;
     height: 130px;
-
     opacity: 0.35;
-
     pointer-events: none;
 }
 
 .flower::before,
 .flower::after {
     content: "";
-
     position: absolute;
-
     width: 45px;
     height: 85px;
-
     border: 1px solid #9b9b8b;
-
     border-radius: 100% 0 100% 0;
 }
 
 .flower::before {
     top: 20px;
     left: 25px;
-
     transform: rotate(35deg);
 }
 
 .flower::after {
     top: 35px;
     left: 55px;
-
     transform: rotate(-25deg);
 }
 
 .flower-top-left {
     top: -25px;
     left: -30px;
-
     transform: rotate(-20deg);
 }
 
 .flower-top-right {
     top: -25px;
     right: -30px;
-
     transform: scaleX(-1) rotate(-20deg);
 }
 
 .flower-bottom-left {
     bottom: -55px;
     left: -35px;
-
     transform: rotate(150deg);
 }
 
 .flower-bottom-right {
     bottom: -55px;
     right: -35px;
-
     transform: scaleX(-1) rotate(150deg);
+}
+
+
+/* ================================================= */
+/* COVER ANIMATION */
+/* ================================================= */
+
+.cover-content .small-title,
+.cover-content h1,
+.cover-content .cover-date {
+    opacity: 0;
+    transform: translateY(18px);
+}
+
+.cover-content .small-title {
+    animation: coverReveal 1.2s ease-out 0.3s forwards;
+}
+
+.cover-content h1 {
+    animation: coverReveal 1.5s ease-out 0.8s forwards;
+}
+
+.cover-content .cover-date {
+    animation: coverReveal 1.2s ease-out 1.4s forwards;
+}
+
+@keyframes coverReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -189,11 +213,8 @@ p {
     font-family: 'Amiri', serif;
     font-size: 27px;
     line-height: 2;
-
     color: #725c4f;
-
     direction: rtl;
-
     margin-bottom: 5px;
 }
 
@@ -201,27 +222,20 @@ p {
     font-family: 'Cormorant Garamond', serif;
     font-size: 16px;
     font-style: italic;
-
     color: #967e6f;
-
     margin-bottom: 35px;
 }
 
 .opening-text {
     font-family: 'Montserrat', sans-serif;
-
     font-size: 9px;
     line-height: 2;
-
     color: #806c5f;
-
     max-width: 330px;
-
     margin: 0 auto 18px;
 }
 
 @keyframes openingFade {
-
     from {
         opacity: 0;
         transform: translateY(25px);
@@ -240,7 +254,6 @@ p {
 
 .couple {
     background: #fdf3ec;
-
     position: relative;
     overflow: hidden;
 }
@@ -250,23 +263,18 @@ p {
     padding-bottom: 90px;
 
     position: relative;
-    z-index: 5;
+    z-index: 10;
 }
 
 .couple h2 {
     font-family: 'Cormorant Garamond', serif;
-
     font-size: 34px;
     font-weight: 500;
-
     line-height: 1.15;
-
     color: #735b4c;
-
     margin: 0;
 
     opacity: 0;
-
     transform: translateY(25px);
 
     transition:
@@ -276,16 +284,16 @@ p {
 
 .couple-description {
     font-family: 'Montserrat', sans-serif;
-
     font-size: 8px;
     line-height: 1.8;
-
     color: #91796a;
 
-    margin-top: 15px;
+    width: 100%;
+    max-width: 330px;
+
+    margin: 15px auto 0;
 
     opacity: 0;
-
     transform: translateY(20px);
 
     transition:
@@ -293,19 +301,18 @@ p {
         transform 1s ease;
 
     transition-delay: 0.3s;
+
+    position: relative;
+    z-index: 20;
 }
 
 .and {
     font-family: 'Cormorant Garamond', serif;
-
     font-size: 30px;
-
     color: #947765;
-
     margin: 40px 0;
 
     opacity: 0;
-
     transform: scale(0.5);
 
     transition:
@@ -313,6 +320,9 @@ p {
         transform 1s ease;
 
     transition-delay: 0.8s;
+
+    position: relative;
+    z-index: 20;
 }
 
 .couple.bloom-active h2 {
@@ -332,7 +342,7 @@ p {
 
 
 /* ================================================= */
-/* BUNGA BERMEKARAN */
+/* BUNGA / DAUN MEMPELAI */
 /* ================================================= */
 
 .bloom-flower {
@@ -356,47 +366,80 @@ p {
         transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+
+/* POSISI KIRI */
+
 .flower-left {
-    left: 5%;
+    left: 2%;
 }
+
+
+/* POSISI KANAN */
 
 .flower-right {
-    right: 5%;
+    right: 2%;
 }
+
+
+/* BUNGA 1 */
 
 .flower-1 {
-    top: 10%;
-    font-size: 30px;
+    top: 8%;
+    font-size: 28px;
 }
+
+
+/* DAUN 2
+   DIPINDAHKAN LEBIH KE PINGGIR
+   AGAR TIDAK MENUTUP TEKS */
 
 .flower-2 {
-    top: 30%;
-    left: 10%;
-    font-size: 22px;
+    top: 31%;
+    left: 1%;
+    font-size: 20px;
 }
+
+
+/* BUNGA 3 */
 
 .flower-3 {
-    bottom: 15%;
-    left: 7%;
-    font-size: 25px;
+    bottom: 12%;
+    left: 2%;
+    font-size: 24px;
 }
+
+
+/* BUNGA 4 */
 
 .flower-4 {
-    top: 12%;
-    font-size: 30px;
+    top: 9%;
+    right: 1%;
+    font-size: 28px;
 }
+
+
+/* DAUN 5
+   DIPINDAHKAN KE PINGGIR */
 
 .flower-5 {
-    top: 38%;
-    right: 10%;
-    font-size: 22px;
+    top: 34%;
+    right: 1%;
+    font-size: 20px;
 }
 
+
+/* BUNGA 6 */
+
 .flower-6 {
-    bottom: 13%;
-    right: 7%;
-    font-size: 25px;
+    bottom: 11%;
+    right: 2%;
+    font-size: 24px;
 }
+
+
+/* ================================================= */
+/* ANIMASI BUNGA SATU-SATU */
+/* ================================================= */
 
 .couple.bloom-active .bloom-flower {
     opacity: 1;
@@ -433,7 +476,7 @@ p {
 
 
 /* ================================================= */
-/* ORNAMEN DAUN */
+/* ORNAMEN DAUN BESAR */
 /* ================================================= */
 
 .couple::before,
@@ -446,9 +489,11 @@ p {
 
     color: #b9a294;
 
-    opacity: 0.45;
+    opacity: 0.35;
 
-    font-size: 65px;
+    font-size: 60px;
+
+    pointer-events: none;
 
     transition:
         opacity 1.5s ease,
@@ -456,8 +501,8 @@ p {
 }
 
 .couple::before {
-    left: -12px;
-    bottom: 30px;
+    left: -35px;
+    bottom: 25px;
 
     transform:
         rotate(-25deg)
@@ -465,8 +510,8 @@ p {
 }
 
 .couple::after {
-    right: -12px;
-    top: 35px;
+    right: -35px;
+    top: 25px;
 
     transform:
         rotate(155deg)
@@ -475,7 +520,7 @@ p {
 
 .couple.bloom-active::before,
 .couple.bloom-active::after {
-    opacity: 0.65;
+    opacity: 0.55;
 
     transform:
         rotate(0)
@@ -489,65 +534,29 @@ p {
 
 .events {
     background: #f9e8dc;
-
     text-align: center;
 }
 
 .events .section-inner {
     max-width: 480px;
-
-    /*
-    SPASI ATAS DAN BAWAH
-    DIBUAT LEBIH LEGA
-    */
-
     padding-top: 85px;
     padding-bottom: 100px;
 }
 
-
-/* ================================================= */
-/* LABEL AGENDA */
-/* ================================================= */
-
 .events .section-label {
     font-family: 'Montserrat', sans-serif;
-
     font-size: 7px;
-
     font-weight: 400;
-
     letter-spacing: 3px;
-
     color: #a48776;
-
-    /*
-    JARAK AGENDA
-    KE JUDUL
-    */
-
     margin-bottom: 20px;
 }
 
-
-/* ================================================= */
-/* JUDUL RANGKAIAN ACARA */
-/* ================================================= */
-
 .events .section-title {
     font-family: 'Cormorant Garamond', serif;
-
     font-size: 36px;
-
     font-weight: 500;
-
     color: #735c4e;
-
-    /*
-    JARAK JUDUL
-    KE COUNTDOWN
-    */
-
     margin: 0 0 50px;
 }
 
@@ -558,32 +567,20 @@ p {
 
 .countdown {
     display: flex;
-
     justify-content: center;
-
     gap: 10px;
 
+    width: 100%;
     max-width: 390px;
-
-    /*
-    JARAK COUNTDOWN
-    KE KARTU ACARA
-    */
 
     margin: 0 auto 42px;
 }
 
 .countdown-item {
     min-width: 70px;
-
     padding: 17px 8px;
 
-    background: rgba(
-        255,
-        255,
-        255,
-        0.72
-    );
+    background: rgba(255, 255, 255, 0.72);
 
     border-radius: 8px;
 
@@ -593,9 +590,7 @@ p {
 .countdown-number {
     display: block;
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 27px;
 
@@ -609,9 +604,7 @@ p {
 
     margin-top: 7px;
 
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 6px;
 
@@ -621,12 +614,8 @@ p {
 }
 
 .countdown-finished {
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
+    font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
-
     color: #765e50;
 }
 
@@ -637,19 +626,9 @@ p {
 
 .event-card {
     width: 100%;
-
     max-width: 425px;
 
-    /*
-    JARAK ANTAR CARD
-    */
-
     margin: 0 auto 22px;
-
-    /*
-    ISI CARD DIBUAT
-    LEBIH RENGGANG
-    */
 
     padding: 38px 25px 42px;
 
@@ -661,12 +640,7 @@ p {
 
     box-shadow:
         0 5px 18px
-        rgba(
-            120,
-            80,
-            60,
-            0.06
-        );
+        rgba(120, 80, 60, 0.06);
 
     box-sizing: border-box;
 }
@@ -675,11 +649,6 @@ p {
     margin-bottom: 0;
 }
 
-
-/* ================================================= */
-/* ICON ACARA */
-/* ================================================= */
-
 .event-icon {
     width: 40px;
     height: 40px;
@@ -687,9 +656,7 @@ p {
     margin: 0 auto 24px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     border-radius: 50%;
@@ -698,22 +665,13 @@ p {
 
     color: #967967;
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 20px;
 }
 
-
-/* ================================================= */
-/* JUDUL ACARA */
-/* ================================================= */
-
 .event-card h3 {
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 29px;
 
@@ -724,15 +682,8 @@ p {
     margin: 0 0 20px;
 }
 
-
-/* ================================================= */
-/* TANGGAL */
-/* ================================================= */
-
 .event-date {
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 7px;
 
@@ -745,15 +696,8 @@ p {
     margin: 0 0 17px;
 }
 
-
-/* ================================================= */
-/* WAKTU */
-/* ================================================= */
-
 .event-time {
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 8px;
 
@@ -762,15 +706,8 @@ p {
     margin: 0 0 18px;
 }
 
-
-/* ================================================= */
-/* LOKASI */
-/* ================================================= */
-
 .event-location {
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 8px;
 
@@ -783,12 +720,11 @@ p {
 
 
 /* ================================================= */
-/* VENUE / TEMPAT ACARA */
+/* VENUE */
 /* ================================================= */
 
 .venue {
     background: #fffaf7;
-
     text-align: center;
 }
 
@@ -798,9 +734,7 @@ p {
 }
 
 .venue .section-label {
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 7px;
 
@@ -812,9 +746,7 @@ p {
 }
 
 .venue h2 {
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 34px;
 
@@ -830,9 +762,7 @@ p {
 
     margin: 0 auto 25px;
 
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 8px;
 
@@ -842,11 +772,12 @@ p {
 }
 
 
+/* ================================================= */
 /* FOTO LOKASI */
+/* ================================================= */
 
 .venue-photo {
     width: 100%;
-
     max-width: 340px;
 
     height: 220px;
@@ -870,12 +801,12 @@ p {
 }
 
 
+/* ================================================= */
 /* ALAMAT */
+/* ================================================= */
 
 .venue-address {
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 8px;
 
@@ -887,7 +818,9 @@ p {
 }
 
 
+/* ================================================= */
 /* BUTTON LOKASI */
+/* ================================================= */
 
 .location-button {
     display: inline-block;
@@ -900,9 +833,7 @@ p {
 
     color: #ffffff;
 
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 8px;
 
@@ -924,7 +855,6 @@ p {
 
 .quote {
     background: #fffaf7;
-
     text-align: center;
 }
 
@@ -937,9 +867,7 @@ p {
 }
 
 .small-ornament {
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 25px;
 
@@ -953,9 +881,7 @@ p {
 
     margin: 0 auto 18px;
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 17px;
 
@@ -967,9 +893,7 @@ p {
 .quote-source {
     margin: 0;
 
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 7px;
 
@@ -998,9 +922,7 @@ p {
 }
 
 .map-section .section-label {
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 7px;
 
@@ -1012,9 +934,7 @@ p {
 }
 
 .map-section h2 {
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 34px;
 
@@ -1030,9 +950,7 @@ p {
 
     margin: 0 auto 25px;
 
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 8px;
 
@@ -1040,9 +958,6 @@ p {
 
     color: #806b5d;
 }
-
-
-/* QR CODE */
 
 .qr-container {
     width: 230px;
@@ -1058,12 +973,7 @@ p {
 
     box-shadow:
         0 4px 15px
-        rgba(
-            120,
-            80,
-            60,
-            0.08
-        );
+        rgba(120, 80, 60, 0.08);
 }
 
 .qr-container img {
@@ -1078,9 +988,7 @@ p {
 .qr-caption {
     margin: 0;
 
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 7px;
 
@@ -1091,7 +999,7 @@ p {
 
 
 /* ================================================= */
-/* FAMILY / TURUT MENGUNDANG */
+/* FAMILY */
 /* ================================================= */
 
 .family {
@@ -1109,9 +1017,7 @@ p {
 }
 
 .family .section-label {
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 7px;
 
@@ -1123,9 +1029,7 @@ p {
 }
 
 .family h2 {
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 34px;
 
@@ -1135,9 +1039,6 @@ p {
 
     margin: 0 0 30px;
 }
-
-
-/* FAMILY CARD */
 
 .family-card {
     width: 100%;
@@ -1154,18 +1055,11 @@ p {
 
     box-shadow:
         0 3px 12px
-        rgba(
-            120,
-            80,
-            60,
-            0.05
-        );
+        rgba(120, 80, 60, 0.05);
 }
 
 .family-card h3 {
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 18px;
 
@@ -1177,9 +1071,7 @@ p {
 }
 
 .family-card p {
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 8px;
 
@@ -1189,9 +1081,7 @@ p {
 }
 
 .family-card span {
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 6px;
 
@@ -1202,7 +1092,7 @@ p {
 
 
 /* ================================================= */
-/* CLOSING / PENUTUP */
+/* CLOSING */
 /* ================================================= */
 
 .closing {
@@ -1228,9 +1118,7 @@ p {
 
     margin: 0 auto 18px;
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 16px;
 
@@ -1242,9 +1130,7 @@ p {
 .closing-greeting {
     margin: 35px 0 8px;
 
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 7px;
 
@@ -1256,9 +1142,7 @@ p {
 .closing h2 {
     margin: 0;
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 32px;
 
@@ -1285,9 +1169,7 @@ footer {
 footer p {
     margin: 0 0 8px;
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 20px;
 
@@ -1297,9 +1179,7 @@ footer p {
 footer span {
     display: block;
 
-    font-family:
-        'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     font-size: 7px;
 
@@ -1338,12 +1218,7 @@ footer span {
 
     box-shadow:
         0 5px 15px
-        rgba(
-            70,
-            45,
-            35,
-            0.2
-        );
+        rgba(70, 45, 35, 0.2);
 
     transition:
         transform 0.3s ease,
@@ -1355,8 +1230,7 @@ footer span {
 }
 
 .music-button.playing {
-    animation:
-        musicPulse 1.5s infinite;
+    animation: musicPulse 1.5s infinite;
 }
 
 @keyframes musicPulse {
@@ -1364,34 +1238,126 @@ footer span {
     0% {
         box-shadow:
             0 0 0 0
-            rgba(
-                128,
-                104,
-                88,
-                0.4
-            );
+            rgba(128, 104, 88, 0.4);
     }
 
     70% {
         box-shadow:
             0 0 0 10px
-            rgba(
-                128,
-                104,
-                88,
-                0
-            );
+            rgba(128, 104, 88, 0);
     }
 
     100% {
         box-shadow:
             0 0 0 0
-            rgba(
-                128,
-                104,
-                88,
-                0
-            );
+            rgba(128, 104, 88, 0);
+    }
+}
+
+
+/* ================================================= */
+/* SCROLL REVEAL */
+/* ================================================= */
+
+.scroll-reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.scroll-reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ================================================= */
+/* BUTTERFLY */
+/* ================================================= */
+
+.butterfly {
+    position: fixed;
+
+    left: 50%;
+    bottom: -40px;
+
+    z-index: 99999;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    filter:
+        drop-shadow(
+            0 2px 4px
+            rgba(120, 90, 70, 0.12)
+        );
+
+    animation:
+        butterflyFly 5s ease-in-out forwards;
+}
+
+@keyframes butterflyFly {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(0, 0)
+            rotate(-10deg)
+            scale(0.6);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    25% {
+        transform:
+            translate(70px, -150px)
+            rotate(12deg)
+            scale(1);
+    }
+
+    45% {
+        transform:
+            translate(-60px, -300px)
+            rotate(-12deg)
+            scale(1.05);
+    }
+
+    65% {
+        transform:
+            translate(80px, -450px)
+            rotate(10deg)
+            scale(0.95);
+    }
+
+    85% {
+        opacity: 0.7;
+
+        transform:
+            translate(-40px, -600px)
+            rotate(-8deg)
+            scale(0.9);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(30px, -750px)
+            rotate(5deg)
+            scale(0.7);
     }
 }
 
@@ -1421,29 +1387,109 @@ footer span {
 
 
 /* ================================================= */
-/* MOBILE KECIL */
+/* MOBILE */
 /* ================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 699px) {
 
-    .events .section-inner {
-        padding-left: 18px;
-        padding-right: 18px;
+    .couple .section-inner {
+        padding-left: 38px;
+        padding-right: 38px;
     }
 
+    .couple h2 {
+        font-size: 34px;
+    }
+
+    .couple-description {
+        max-width: 270px;
+        font-size: 8px;
+        position: relative;
+        z-index: 20;
+    }
+
+    /*
+       BUNGA DI HP DIPERKECIL
+       DAN DITARIK KE PINGGIR
+    */
+
+    .bloom-flower {
+        z-index: 1;
+    }
+
+    .flower-1 {
+        left: -2%;
+        top: 8%;
+        font-size: 25px;
+    }
+
+    .flower-2 {
+        left: -2%;
+        top: 32%;
+        font-size: 18px;
+    }
+
+    .flower-3 {
+        left: -1%;
+        bottom: 10%;
+        font-size: 22px;
+    }
+
+    .flower-4 {
+        right: -2%;
+        top: 9%;
+        font-size: 25px;
+    }
+
+    .flower-5 {
+        right: -2%;
+        top: 35%;
+        font-size: 18px;
+    }
+
+    .flower-6 {
+        right: -1%;
+        bottom: 9%;
+        font-size: 22px;
+    }
+
+    /*
+       ORNAMEN BESAR TIDAK BOLEH
+       MASUK KE AREA TEKS
+    */
+
+    .couple::before {
+        left: -55px;
+        bottom: 15px;
+        font-size: 55px;
+    }
+
+    .couple::after {
+        right: -55px;
+        top: 15px;
+        font-size: 55px;
+    }
+
+    /*
+       COUNTDOWN HP
+    */
+
     .countdown {
-        gap: 6px;
+        gap: 7px;
     }
 
     .countdown-item {
-        min-width: 62px;
-
-        padding: 15px 5px;
+        min-width: 65px;
+        padding: 16px 6px;
     }
 
     .countdown-number {
-        font-size: 24px;
+        font-size: 25px;
     }
+
+    /*
+       EVENT CARD HP
+    */
 
     .event-card {
         padding-left: 20px;
@@ -1451,180 +1497,82 @@ footer span {
     }
 }
 
-/* =========================================
-   COVER - ANIMASI MUNCUL PERLAHAN
-   ========================================= */
 
-.cover-content .small-title,
-.cover-content h1,
-.cover-content .cover-date {
-    opacity: 0;
-    transform: translateY(18px);
-}
+/* ================================================= */
+/* HP KECIL */
+/* ================================================= */
 
-/* THE WEDDING OF */
-.cover-content .small-title {
-    animation: coverReveal 1.2s ease-out 0.3s forwards;
-}
+@media (max-width: 380px) {
 
-/* HENI & DAFIT */
-.cover-content h1 {
-    animation: coverReveal 1.5s ease-out 0.8s forwards;
-}
-
-/* TANGGAL */
-.cover-content .cover-date {
-    animation: coverReveal 1.2s ease-out 1.4s forwards;
-}
-
-@keyframes coverReveal {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
+    .section-inner {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =========================================
-   SCROLL REVEAL
-   MUNCUL SAAT DI-SCROLL
-   ========================================= */
-
-.scroll-reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-}
-
-.scroll-reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =========================================
-   BUTTERFLY OPENING ANIMATION
-   ========================================= */
-
-.butterfly {
-    position: fixed;
-    z-index: 9999;
-
-    font-size: 22px;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-    filter: drop-shadow(
-        0 2px 4px rgba(120, 90, 70, 0.12)
-    );
-
-    animation: butterflyFly 5s ease-in-out forwards;
-}
-
-@keyframes butterflyFly {
-
-    0% {
-        opacity: 0;
-        transform:
-            translate(0, 30px)
-            rotate(-8deg)
-            scale(0.6);
+    .couple .section-inner {
+        padding-left: 32px;
+        padding-right: 32px;
     }
 
-    15% {
-        opacity: 1;
+    .couple-description {
+        max-width: 245px;
+        font-size: 7.5px;
     }
 
-    35% {
-        transform:
-            translate(35px, -90px)
-            rotate(8deg)
-            scale(1);
+    .couple h2 {
+        font-size: 31px;
     }
 
-    55% {
-        transform:
-            translate(-20px, -190px)
-            rotate(-5deg)
-            scale(1.05);
+    .flower-1,
+    .flower-4 {
+        font-size: 22px;
     }
 
-    75% {
-        transform:
-            translate(45px, -300px)
-            rotate(7deg)
-            scale(0.95);
+    .flower-2,
+    .flower-5 {
+        font-size: 16px;
     }
 
-    100% {
-        opacity: 0;
+    .flower-3,
+    .flower-6 {
+        font-size: 20px;
+    }
 
-        transform:
-            translate(-10px, -430px)
-            rotate(-5deg)
-            scale(0.7);
+    .countdown {
+        gap: 5px;
+    }
+
+    .countdown-item {
+        min-width: 61px;
+        padding: 15px 5px;
+    }
+
+    .countdown-number {
+        font-size: 23px;
+    }
+
+    .event-card {
+        padding-left: 18px;
+        padding-right: 18px;
     }
 }
 
 
-/* =========================================
-   KUPU-KUPU SAAT UNDANGAN DIBUKA
-   ========================================= */
+/* ================================================= */
+/* REDUCE MOTION */
+/* ================================================= */
 
-.butterfly {
-    position: fixed;
-    left: 50%;
-    bottom: -40px;
+@media (prefers-reduced-motion: reduce) {
 
-    z-index: 99999;
-
-    font-size: 25px;
-    line-height: 1;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-    animation: butterflyFly 5s ease-in-out forwards;
-}
-
-@keyframes butterflyFly {
-
-    0% {
-        opacity: 0;
-        transform: translate(0, 0) rotate(-10deg) scale(0.6);
+    html {
+        scroll-behavior: auto;
     }
 
-    10% {
-        opacity: 1;
-    }
-
-    25% {
-        transform: translate(70px, -150px) rotate(12deg) scale(1);
-    }
-
-    45% {
-        transform: translate(-60px, -300px) rotate(-12deg) scale(1.05);
-    }
-
-    65% {
-        transform: translate(80px, -450px) rotate(10deg) scale(0.95);
-    }
-
-    85% {
-        opacity: 0.7;
-        transform: translate(-40px, -600px) rotate(-8deg) scale(0.9);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(30px, -750px) rotate(5deg) scale(0.7);
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
