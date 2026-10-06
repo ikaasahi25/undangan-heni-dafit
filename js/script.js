@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
     /* =========================================
        1. BUNGA DI BAGIAN COUPLE
        ========================================= */
@@ -30,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-
     /* =========================================
        2. COUNTDOWN
        ========================================= */
@@ -42,13 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const weddingDate =
             new Date("2026-11-09T08:00:00+07:00").getTime();
 
-
         function updateCountdown() {
 
             const now = new Date().getTime();
-
             const distance = weddingDate - now;
-
 
             if (distance <= 0) {
 
@@ -61,29 +56,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-
             const days = Math.floor(
                 distance / (1000 * 60 * 60 * 24)
             );
-
 
             const hours = Math.floor(
                 (distance % (1000 * 60 * 60 * 24))
                 / (1000 * 60 * 60)
             );
 
-
             const minutes = Math.floor(
                 (distance % (1000 * 60 * 60))
                 / (1000 * 60)
             );
 
-
             const seconds = Math.floor(
                 (distance % (1000 * 60))
                 / 1000
             );
-
 
             const daysElement =
                 document.querySelector("#days");
@@ -96,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const secondsElement =
                 document.querySelector("#seconds");
-
 
             if (daysElement) {
                 daysElement.textContent =
@@ -117,47 +106,108 @@ document.addEventListener("DOMContentLoaded", function () {
                 secondsElement.textContent =
                     String(seconds).padStart(2, "0");
             }
-
         }
 
-
         updateCountdown();
-
         setInterval(updateCountdown, 1000);
     }
 
 
-// =================================================
-// MUSIK SAAT UNDANGAN DIGULIR
-// =================================================
+    /* =========================================
+       3. MUSIK SAAT USER MULAI MENGGULIR
+       ========================================= */
 
-const music = document.getElementById("weddingMusic");
+    const music = document.getElementById("weddingMusic");
 
-if (music) {
+    if (music) {
 
-    music.volume = 0.5;
+        music.volume = 0.5;
+        music.load();
 
-    let musicStarted = false;
+        let musicStarted = false;
 
-    function startMusic() {
-        if (musicStarted) return;
+        function startMusic() {
 
-        music.play()
-            .then(function () {
-                musicStarted = true;
-                console.log("Musik mulai diputar.");
-            })
-            .catch(function (error) {
-                console.log("Musik belum bisa diputar:", error);
-            });
+            if (musicStarted) return;
+
+            music.play()
+                .then(function () {
+
+                    musicStarted = true;
+
+                    console.log("🎵 Musik berhasil diputar.");
+
+                    // Hapus listener setelah musik BENAR-BENAR berhasil
+                    document.removeEventListener(
+                        "touchstart",
+                        startMusic
+                    );
+
+                    document.removeEventListener(
+                        "touchmove",
+                        startMusic
+                    );
+
+                    document.removeEventListener(
+                        "pointerdown",
+                        startMusic
+                    );
+
+                    document.removeEventListener(
+                        "wheel",
+                        startMusic
+                    );
+
+                    window.removeEventListener(
+                        "scroll",
+                        startMusic
+                    );
+
+                })
+                .catch(function (error) {
+
+                    console.log(
+                        "❌ Musik belum bisa diputar:",
+                        error
+                    );
+
+                });
+        }
+
+        // HP
+        document.addEventListener(
+            "touchstart",
+            startMusic,
+            { passive: true }
+        );
+
+        document.addEventListener(
+            "touchmove",
+            startMusic,
+            { passive: true }
+        );
+
+        // HP / perangkat modern
+        document.addEventListener(
+            "pointerdown",
+            startMusic,
+            { passive: true }
+        );
+
+        // Desktop
+        document.addEventListener(
+            "wheel",
+            startMusic,
+            { passive: true }
+        );
+
+        // Cadangan
+        window.addEventListener(
+            "scroll",
+            startMusic,
+            { passive: true }
+        );
     }
-
-    // Musik mulai saat user menggulir undangan
-    window.addEventListener("scroll", startMusic, {
-        once: true,
-        passive: true
-    });
-}
 
 
     /* =========================================
@@ -195,7 +245,6 @@ if (music) {
 
         const elements =
             document.querySelectorAll(selector);
-
 
         elements.forEach(function (element) {
 
@@ -239,7 +288,6 @@ if (music) {
         });
 
 
-
     /* =========================================
        5. KUPU-KUPU SAAT UNDANGAN DIBUKA 🦋
        ========================================= */
@@ -255,12 +303,13 @@ if (music) {
 
             butterfly.textContent = "🦋";
 
-            butterfly.style.left = position + "%";
+            butterfly.style.left =
+                position + "%";
 
-            butterfly.style.fontSize = size + "px";
+            butterfly.style.fontSize =
+                size + "px";
 
             document.body.appendChild(butterfly);
-
 
             setTimeout(function () {
 
@@ -269,18 +318,12 @@ if (music) {
             }, 5500);
 
         }, delay);
-
     }
 
 
-    /* KUPU-KUPU MUNCUL SATU PER SATU */
-
     createButterfly(500, 20, 22);
-
     createButterfly(1000, 45, 27);
-
     createButterfly(1500, 70, 20);
-
     createButterfly(2000, 35, 24);
 
 });
