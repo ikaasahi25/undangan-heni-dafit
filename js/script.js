@@ -128,46 +128,104 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    /* =========================================
-       3. MUSIK
-       ========================================= */
+   // =================================================
+// MUSIK UNDANGAN
+// =================================================
 
-    const music =
-        document.getElementById("weddingMusic");
+const music = document.getElementById("weddingMusic");
+const musicButton = document.getElementById("musicButton");
 
-    const musicButton =
-        document.getElementById("musicButton");
+music.volume = 0.5;
 
 
-    if (music && musicButton) {
+// =================================================
+// COBA AUTOPLAY SAAT WEBSITE DIBUKA
+// =================================================
 
-        musicButton.addEventListener(
-            "click",
-            function () {
+window.addEventListener("load", () => {
 
-                if (music.paused) {
+    music.play()
+        .then(() => {
 
-                    music.play();
+            // Kalau berhasil autoplay
+            musicButton.classList.add("playing");
+            musicButton.textContent = "❚❚";
 
-                    musicButton.classList.add("playing");
+        })
+        .catch(() => {
 
-                    musicButton.innerHTML = "♫";
+            // Kalau browser memblokir autoplay,
+            // tunggu interaksi pertama dari pengunjung
 
-                } else {
+            console.log("Autoplay diblokir browser.");
 
-                    music.pause();
+        });
 
-                    musicButton.classList.remove("playing");
+});
 
-                    musicButton.innerHTML = "♪";
 
-                }
+// =================================================
+// JIKA AUTOPLAY DIBLOKIR
+// MUSIK MULAI SAAT INTERAKSI PERTAMA
+// =================================================
 
-            }
-        );
+function mulaiMusik() {
+
+    if (music.paused) {
+
+        music.play()
+            .then(() => {
+
+                musicButton.classList.add("playing");
+                musicButton.textContent = "❚❚";
+
+            })
+            .catch(() => {});
 
     }
 
+}
+
+
+// Interaksi pertama
+document.addEventListener("click", mulaiMusik, {
+    once: true
+});
+
+document.addEventListener("touchstart", mulaiMusik, {
+    once: true
+});
+
+document.addEventListener("pointerdown", mulaiMusik, {
+    once: true
+});
+
+
+// =================================================
+// TOMBOL MUSIK
+// =================================================
+
+musicButton.addEventListener("click", function (e) {
+
+    e.stopPropagation();
+
+    if (music.paused) {
+
+        music.play();
+
+        musicButton.classList.add("playing");
+        musicButton.textContent = "❚❚";
+
+    } else {
+
+        music.pause();
+
+        musicButton.classList.remove("playing");
+        musicButton.textContent = "♪";
+
+    }
+
+});
 
 
     /* =========================================
