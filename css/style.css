@@ -1545,6 +1545,11 @@ footer span {
     }
 }
 
+.heni-family span {
+    white-space: nowrap;
+    font-size: 7px;
+}
+
 
 /* ================================================= */
 /* REDUCE MOTION */
