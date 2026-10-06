@@ -1042,17 +1042,11 @@ p {
 
 .family-card {
     width: 100%;
-
     max-width: 340px;
-
-    margin: 0 auto 15px;
-
-    padding: 20px 18px;
-
+    margin: 0 auto 10px !important;
+    padding: 18px 18px;
     background: #fff;
-
     border-radius: 8px;
-
     box-shadow:
         0 3px 12px
         rgba(120, 80, 60, 0.05);
@@ -1060,34 +1054,28 @@ p {
 
 .family-card h3 {
     font-family: 'Cormorant Garamond', serif;
-
     font-size: 18px;
-
     font-weight: 500;
-
     color: #765e50;
-
     margin: 0 0 5px;
 }
 
 .family-card p {
     font-family: 'Montserrat', sans-serif;
-
     font-size: 8px;
-
     color: #8d7668;
-
     margin: 0 0 8px;
 }
 
 .family-card span {
     font-family: 'Montserrat', sans-serif;
-
     font-size: 6px;
-
     letter-spacing: 1.5px;
-
     color: #b09686;
+}
+
+.family-card:last-child {
+    margin: 0 auto !important;
 }
 
 
