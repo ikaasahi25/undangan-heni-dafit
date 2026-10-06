@@ -127,105 +127,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-
-   // =================================================
-// MUSIK UNDANGAN
+// =================================================
+// MUSIK SAAT UNDANGAN DIGULIR
 // =================================================
 
 const music = document.getElementById("weddingMusic");
-const musicButton = document.getElementById("musicButton");
 
-music.volume = 0.5;
+if (music) {
 
+    music.volume = 0.5;
 
-// =================================================
-// COBA AUTOPLAY SAAT WEBSITE DIBUKA
-// =================================================
+    let musicStarted = false;
 
-window.addEventListener("load", () => {
-
-    music.play()
-        .then(() => {
-
-            // Kalau berhasil autoplay
-            musicButton.classList.add("playing");
-            musicButton.textContent = "❚❚";
-
-        })
-        .catch(() => {
-
-            // Kalau browser memblokir autoplay,
-            // tunggu interaksi pertama dari pengunjung
-
-            console.log("Autoplay diblokir browser.");
-
-        });
-
-});
-
-
-// =================================================
-// JIKA AUTOPLAY DIBLOKIR
-// MUSIK MULAI SAAT INTERAKSI PERTAMA
-// =================================================
-
-function mulaiMusik() {
-
-    if (music.paused) {
+    function startMusic() {
+        if (musicStarted) return;
 
         music.play()
-            .then(() => {
-
-                musicButton.classList.add("playing");
-                musicButton.textContent = "❚❚";
-
+            .then(function () {
+                musicStarted = true;
+                console.log("Musik mulai diputar.");
             })
-            .catch(() => {});
-
+            .catch(function (error) {
+                console.log("Musik belum bisa diputar:", error);
+            });
     }
 
+    // Musik mulai saat user menggulir undangan
+    window.addEventListener("scroll", startMusic, {
+        once: true,
+        passive: true
+    });
 }
-
-
-// Interaksi pertama
-document.addEventListener("click", mulaiMusik, {
-    once: true
-});
-
-document.addEventListener("touchstart", mulaiMusik, {
-    once: true
-});
-
-document.addEventListener("pointerdown", mulaiMusik, {
-    once: true
-});
-
-
-// =================================================
-// TOMBOL MUSIK
-// =================================================
-
-musicButton.addEventListener("click", function (e) {
-
-    e.stopPropagation();
-
-    if (music.paused) {
-
-        music.play();
-
-        musicButton.classList.add("playing");
-        musicButton.textContent = "❚❚";
-
-    } else {
-
-        music.pause();
-
-        musicButton.classList.remove("playing");
-        musicButton.textContent = "♪";
-
-    }
-
-});
 
 
     /* =========================================
